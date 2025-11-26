@@ -12,7 +12,10 @@ const URL =
 module.exports = {
   development: {
     client: "postgresql",
-    connection: URL,
+    connection: {
+      connectionString: URL,
+      ssl: { rejectUnauthorized: false }
+    },
     migrations: {
       directory: __dirname + "/api/db/migrations",
     },
@@ -23,7 +26,10 @@ module.exports = {
 
   production: {
     client: "postgresql",
-    connection: URL,
+    connection: {
+      connectionString: URL,
+      ssl: { rejectUnauthorized: false }
+    },
     migrations: {
       directory: __dirname + "/api/db/migrations",
     },
